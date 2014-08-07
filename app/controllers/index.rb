@@ -11,6 +11,22 @@ post '/signup' do
   user.save!
 end
 
-# post '/login' do
+post '/login' do
+  user = User.find_by(handle: params[:handle])
+  if user == nil
+    @error = "Your handle is incorrect"
+    erb :error
+  elsif user.password != params[:password]
+    @error = "Your password is incorrect"
+    erb :error
+  else
+    session[:user_id] = user.id
+    redirect '/'
+  end
+end
 
-# end
+
+delete '/logout' do
+
+
+end
