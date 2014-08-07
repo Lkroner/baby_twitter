@@ -2,5 +2,7 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 
 set :app_file, __FILE__
+web: bundle exec rackup config.ru -p $PORT
 
 run Sinatra::Application
+
