@@ -28,5 +28,5 @@ end
 
 delete '/logout' do
 
-
+  
 end
