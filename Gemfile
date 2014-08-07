@@ -4,6 +4,9 @@ ruby '2.0.0'
 # PostgreSQL driver
 gem 'pg'
 
+#password protection
+gem 'bcrypt-ruby', '~> 3.1.5'
+
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
