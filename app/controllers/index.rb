@@ -3,12 +3,14 @@ get '/' do
 end
 
 post '/signup' do
-  user = User.new(name => params[:name],
-                  email => params[:email],
-                  handle => params[:handle],
-                  bio => params[:bio])
+  user = User.new(:name => params[:name],
+                  :email => params[:email],
+                  :handle => params[:handle],
+                  :bio => params[:bio])
   user.password = params[:password]
   user.save!
+  session[:user_id] = user.id
+  redirect '/users'
 end
 
 post '/login' do
@@ -28,5 +30,5 @@ end
 
 delete '/logout' do
 
-  
+
 end

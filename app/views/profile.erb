@@ -1,0 +1,14 @@
+<div class="container">
+
+	<h2><%= @handle %></h2>
+	<p><%= @bio %></p>
+	<a href="/users/followers">Followers</a>
+	<a href="/users/following">Following</a>
+	<a href="">Tweets</a>
+
+	<h4>Tweet it</h4>
+	<form action='/tweet' method='post'>
+		<input type='text' name='content' placeholder="Add your tweet here"><br>
+		<input type='submit' value="Tweet it, son!">
+	</form>
+</div>
