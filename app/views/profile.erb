@@ -2,13 +2,14 @@
 
 	<h2><%= @handle %></h2>
 	<p><%= @bio %></p>
-	<a href="/users/followers">Followers</a>
-	<a href="/users/following">Following</a>
-	<a href="">Tweets</a>
-
+	<a href="/users/<%=@id%>/followers">Followers</a>
+	<a href="/users/<%=@id%>/following">Following</a>
+	<a href="/users/<%=@id%>/tweets">Tweets</a>
+	<% if current_user.id == @id %>
 	<h4>Tweet it</h4>
 	<form action='/tweet' method='post'>
 		<input type='text' name='content' placeholder="Add your tweet here"><br>
 		<input type='submit' value="Tweet it, son!">
 	</form>
+	<%end%>
 </div>

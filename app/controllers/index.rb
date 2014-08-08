@@ -23,12 +23,12 @@ post '/login' do
     erb :error
   else
     session[:user_id] = user.id
-    redirect '/'
+    redirect '/users'
   end
 end
 
 
-delete '/logout' do
-
-
+get '/logout' do
+  session[:user_id] = nil
+  redirect '/'
 end

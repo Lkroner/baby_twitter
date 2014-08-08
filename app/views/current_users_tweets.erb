@@ -1,4 +1,6 @@
 <div class="container">
-  <h1> You fucked up: My Tweets </h1>
-  <h2> <%= @error %> </h2>
+  <h1> Tweets </h1>
+  <% @tweets.each do |tweet| %>
+    <a href="/users/<%=tweet.id%>"><%=tweet.handle%></a>
+    <%end%>
 </div>

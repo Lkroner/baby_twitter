@@ -2,12 +2,11 @@ get '/users' do
   # current_user
   # logged_in?
   @user = current_user
-  p "user + #{@user}"
-  @handle = @user.handle 
-  @id = @user.id 
-  @name = @user.name 
+  @handle = @user.handle
+  @id = @user.id
+  @name = @user.name
   @bio = @user.bio
-  # @followees_tweets = @user.followees.tweets 
+  # @followees_tweets = @user.followees.tweets
   erb :profile
 end
 
@@ -20,19 +19,36 @@ end
 		# redirect '/users'
 # end
 
-get '/users/followers' do 
-	# route to new page that displays current users followers
-	erb :followers
+get '/users/:id' do
+   # current_user
+  # logged_in?
+  @user = User.find(params[:id])
+  @handle = @user.handle
+  @id = @user.id
+  @name = @user.name
+  @bio = @user.bio
+  # @followees_tweets = @user.followees.tweets
+  erb :profile
 end
 
-get '/users/following' do
-	# route to new page that displays users that current user is following
-	erb :followees
+get '/users/:id/followers' do
+  # route to new page that displays current users followers
+  user = User.find(params[:id])
+  @followers = user.followers
+  erb :followers
 end
 
-get 'users/tweets' do 
-	# route to new page that displays current users tweets
-	erb :current_users_tweets
+get '/users/:id/following' do
+  # route to new page that displays users that current user is following
+  user = User.find(params[:id])
+  @followees = user.followees
+  erb :followees
 end
 
+get '/users/:id/tweets' do
+  # route to new page that displays current users tweets
+  user = User.find(params[:id])
+  @tweets = user.tweets
+  erb :current_users_tweets
+end
 

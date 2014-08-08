@@ -1,4 +1,6 @@
 <div class="container">
-  <h1> You fucked up: Followers </h1>
-  <h2> <%= @error %> </h2>
+  <h1> Followees </h1>
+  <% @followees.each do |followee| %>
+    <a href="/users/<%=followee.id%>"><%=followee.handle%></a>
+    <%end%>
 </div>
