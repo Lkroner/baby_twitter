@@ -23,4 +23,13 @@
 			</form>
 		<% end %>
 	<%end%>
+	<% if params[:id] %>
+		<% user = User.where('id=?', params[:id]).first %>
+	<% else %>
+		<% user = current_user %>
+	<% end %>
+	<% user.news_feed.each do |tweet| %>
+		<p><em><%= tweet.user.handle %>:</em>
+			<%= tweet.content %></p>
+	<% end %>
 </div>

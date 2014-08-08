@@ -33,11 +33,11 @@ class User < ActiveRecord::Base
 
   def news_feed
     feed = []
-    followers.each do |f|
+    self.followees.each do |f|
       f.tweets.each do |t|
         feed << t
       end
     end
-    feed.sort_by(&:created_at)
+    feed = feed.sort_by(&:created_at).reverse
   end
 end
