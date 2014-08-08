@@ -11,25 +11,32 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
-<h1>Baby Twitter</h1>
-<% if logged_in? %>
-  <form id="sign-out" method="get" action="/logout">
-    <input type="hidden" value="_delete">
-    <div class="submit"><input type="submit" value="logout">
-  </form>
-  <form id="home" method="get" action="/users/<%=current_user.id%>">
-    <div class="submit"><input type="submit" value="home">
-  </form>
-  <form id="search_users" method="get" action="/users/search">
-    <div class="submit"><input type="submit" value="search users">
-  </form>
-<%end%>
+<header>
+  <ul>
+  <h1>Baby Twitter</h1>
+
+    <% if logged_in? %>
+      <li><a id="left" href = "/users/<%=current_user.id%>"><form id="home" method="get" action="/users/<%=current_user.id%>">
+        <i class="fa fa-home fa-2x pull-left"></i>
+      </form></a></li>
+      <li><a id="right" href ="/logout"><form id="sign-out" method="get" action="/logout">
+        <input type="hidden" value="_delete">
+       <i class="fa fa-sign-out fa-2x pull-right"></i>
+      </form></a></li>
+      <li><a  id="right" href ="/users/search"><form id="search_users" method="get" action="/users/search">
+        <i class="fa fa-lemon-o fa-2x pull-right"></i>
+      </form></a></li>
+    <%end%>
+  </ul>
+  </header>
 <body>
   <%= yield %>
 </body>
