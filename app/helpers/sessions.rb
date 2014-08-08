@@ -12,5 +12,15 @@ helpers do
     !current_user.nil?
   end
 
+  def page_user
+    User.find(params[:id])
+  end
+
+  # def base_url
+  #   @base_url ||= #some shit
+  #   if production?
+  #     after doActiveRecord::Base.connection.close
+  #   end
+  # end
 end
 
