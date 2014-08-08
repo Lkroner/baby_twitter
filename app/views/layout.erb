@@ -11,12 +11,20 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
 </head>
+<header>
+  <ul>
+    <li><i class="fa fa-home fa-2x icon-border"></i></li>
+    <li><i class="fa fa-lemon-o fa-2x"></i></li>
+    <li><i class="fa fa-sign-out fa-2x"></i></li>
+  </ul>
+  </header>
 <h1>Baby Twitter</h1>
 <% if logged_in? %>
   <form id="sign-out" method="get" action="/logout">
