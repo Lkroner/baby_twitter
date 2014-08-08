@@ -4,16 +4,23 @@ body {
 	text-align: center;
 }
 header{
-
+	height: 60px;
+	margin-top:0px;
 }
 header ul li{
 	background-color: transparent;
 	display: inline-block;
 	font-family: "Hevletica Neue", Ariel, sans-serif;
 	list-style-type: none;
+	float: right;
+	padding: 15px;
 }
 i {
 	color: grey;
 	display: inline;
 	opacity: .7;
+}
+h1 {
+	font-family: 'Lobster', cursive;
+	float: left;
 }

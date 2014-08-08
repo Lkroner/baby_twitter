@@ -1,5 +1,5 @@
 <div class="container">
-  <h1> <%=(@user.handle).capitalize%>'s Tweets </h1>
+  <h2> <%=(@user.handle).capitalize%>'s Tweets </h2>
   <% @tweets.each do |tweet| %>
     <!-- <a href="/users/<%=tweet.id%>"><%=tweet.content%><br></a> -->
     <p><%=tweet.content%><br></p>
