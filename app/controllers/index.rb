@@ -6,7 +6,8 @@ post '/signup' do
   user = User.new(:name => params[:name],
                   :email => params[:email],
                   :handle => params[:handle],
-                  :bio => params[:bio])
+                  :bio => params[:bio],
+                  :gravatar_link => params[:gravatar_link])
   user.password = params[:password]
   user.save!
   session[:user_id] = user.id

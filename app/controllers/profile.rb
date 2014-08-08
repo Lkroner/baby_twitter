@@ -6,6 +6,7 @@ get '/users' do
   @id = @user.id
   @name = @user.name
   @bio = @user.bio
+  @gravatar_link = @user.gravatar_link
   # @followees_tweets = @user.followees.tweets
   erb :profile
 end
@@ -33,6 +34,7 @@ get '/users/:id' do
   @id = @user.id
   @name = @user.name
   @bio = @user.bio
+  @gravatar_link = @user.gravatar_link
   # @followees_tweets = @user.followees.tweets
   erb :profile
 end
