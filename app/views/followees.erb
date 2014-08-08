@@ -1,5 +1,5 @@
 <div class="container">
-  <h1> Following </h1>
+  <h2> Following </h2>
   <% @followees.each do |followee| %>
     <a href="/users/<%=followee.id%>"><%=followee.handle%></a>
     <%end%>
