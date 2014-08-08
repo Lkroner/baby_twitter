@@ -6,10 +6,20 @@
 	<a href="/users/<%=@id%>/following">Following</a>
 	<a href="/users/<%=@id%>/tweets">Tweets</a>
 	<% if current_user.id == @id %>
-	<h4>Tweet it</h4>
-	<form action='/tweet' method='post'>
-		<input type='text' name='content' placeholder="Add your tweet here"><br>
-		<input type='submit' value="Tweet it, son!">
-	</form>
+		<h4>Tweet it</h4>
+		<form action='/tweet' method='post'>
+			<input type='text' name='content' placeholder="Add your tweet here"><br>
+			<input type='submit' value="Tweet it, son!">
+		</form>
+	<% else %>
+		<% if current_user.followees.include? User.find(@id) %>
+			<form action='/users/<%=@id%>/unfollow' method='post'>
+				<input type='submit' value="Unfollow">
+			</form>
+		<% else %>
+			<form action='/users/<%=@id%>/follow' method='post'>
+				<input type='submit' value="Follow">
+			</form>
+		<% end %>
 	<%end%>
 </div>

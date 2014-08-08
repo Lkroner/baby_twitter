@@ -1,0 +1,6 @@
+<div class="container">
+  <h1>Find someone to follow! </h1>
+  <% @users.each do |user| %>
+    <p><a href="/users/<%=user.id%>"><%=user.handle%></a></p>
+    <%end%>
+</div>

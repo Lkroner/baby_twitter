@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     followees
   end
 
+  def add_followee(followee)
+    followee.followers << self
+  end
+
   include BCrypt
 
   def password
