@@ -4,19 +4,16 @@ body {
 	text-align: center;
 }
 header{
-	display: inline-block;
+
 }
-header ul{
-	margin-left: auto;
-	margin-right: auto;
+header ul li{
 	background-color: transparent;
+	display: inline-block;
 	font-family: "Hevletica Neue", Ariel, sans-serif;
 	list-style-type: none;
-	text-transform: uppercase;
-	float: right;
 }
 i {
 	color: grey;
-	opacity: .7;
 	display: inline;
+	opacity: .7;
 }
