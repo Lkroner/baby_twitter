@@ -16,11 +16,11 @@ helpers do
     User.find(params[:id])
   end
 
-  def base_url
-    @base_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
-    if production?
-      after doActiveRecord::Base.connection.close
-    end
-  end
+  # def base_url
+  #   @base_url ||= "#{request.env['rack.url_scheme']}://#{request.env['HTTP_HOST']}"
+  #   if production?
+  #     after doActiveRecord::Base.connection.close
+  #   end
+  # end
 end
 
