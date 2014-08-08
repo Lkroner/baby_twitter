@@ -10,14 +10,14 @@ get '/users' do
   erb :profile
 end
 
-# post '/tweet' do
-# 	# does not route to new page
-# 	# adds tweet to user instance
-#   new_tweet = Tweet.new(params)
-#   new_tweet[:user_id] = session[:user_id]
-#   new_tweet.save
-		# redirect '/users'
-# end
+post '/tweet' do
+	# does not route to new page
+	# adds tweet to user instance
+  new_tweet = Tweet.new(content: params[:content])
+  new_tweet[:user_id] = current_user.id
+  new_tweet.save
+	redirect "/users/#{current_user.id}"
+end
 
 get '/users/:id' do
    # current_user
@@ -47,8 +47,8 @@ end
 
 get '/users/:id/tweets' do
   # route to new page that displays current users tweets
-  user = User.find(params[:id])
-  @tweets = user.tweets
+  @user = User.find(params[:id])
+  @tweets = @user.tweets
   erb :current_users_tweets
 end
 
