@@ -30,4 +30,14 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
+  def news_feed
+    feed = []
+    followers.each do |f|
+      f.tweets.each do |t|
+        feed << t
+      end
+    end
+    feed.sort_by(&:created_at)
+  end
 end
