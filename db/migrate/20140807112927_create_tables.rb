@@ -6,6 +6,7 @@ class CreateTables < ActiveRecord::Migration
       t.string :email
       t.string :password_hash
       t.string :bio
+      t.string :gravatar_link
 
       t.timestamps
     end
