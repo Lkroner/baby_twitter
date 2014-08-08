@@ -19,6 +19,12 @@ post '/tweet' do
 	redirect "/users/#{current_user.id}"
 end
 
+get '/users/search' do
+  # route to new page that displays current users tweets
+  @users = User.all
+  erb :search_users
+end
+
 get '/users/:id' do
    # current_user
   # logged_in?
@@ -51,4 +57,21 @@ get '/users/:id/tweets' do
   @tweets = @user.tweets
   erb :current_users_tweets
 end
+
+post '/users/:id/follow' do 
+  @user = current_user
+  followee = User.find(params[:id])
+  @user.add_followee(followee)
+  redirect "/users/#{params[:id]}" 
+end
+
+
+post '/users/:id/unfollow' do 
+  @user = current_user
+  followee = User.find(params[:id])
+  followee.followers.delete(@user.id)
+  redirect "/users/#{params[:id]}" 
+end
+
+
 

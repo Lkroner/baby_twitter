@@ -23,6 +23,12 @@
     <input type="hidden" value="_delete">
     <div class="submit"><input type="submit" value="logout">
   </form>
+  <form id="home" method="get" action="/users/<%=current_user.id%>">
+    <div class="submit"><input type="submit" value="home">
+  </form>
+  <form id="search_users" method="get" action="/users/search">
+    <div class="submit"><input type="submit" value="search users">
+  </form>
 <%end%>
 <body>
   <%= yield %>
